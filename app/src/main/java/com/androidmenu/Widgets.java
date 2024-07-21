@@ -155,6 +155,7 @@ public class Widgets {
         final SeekBar seekBar = new SeekBar(context);
         seekBar.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
         seekBar.setProgress(progress);
+        seekBar.setMax(max);
         seekBar.getThumb().setColorFilter(PRIMARY_COLOR, PorterDuff.Mode.SRC_IN);
         seekBar.getProgressDrawable().setColorFilter(PRIMARY_COLOR, PorterDuff.Mode.SRC_IN);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
