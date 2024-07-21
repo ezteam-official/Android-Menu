@@ -21,7 +21,7 @@ This is just a sample of our Menu.
 
 # Initialize menu in applications:
 ```smali
-# Adicione isso na função principal da aplicação.
+# Add this to the main function of the application.
 # Unity Games: com/unity3d/UnityPlayerActivity
 
 invoke-static {p0}, Lcom/androidmenu/Start;->Call(Landroid/content/Context;)V
