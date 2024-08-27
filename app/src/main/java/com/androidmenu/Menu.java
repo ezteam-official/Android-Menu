@@ -2,6 +2,7 @@ package com.androidmenu;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Canvas;
 import android.graphics.PixelFormat;
 import android.text.Html;
 import android.util.Log;
@@ -41,10 +42,24 @@ public class Menu {
     //-- Widgets Global --\\
     Widgets widgets;
 
+    //-- DrawView Global --\\
+    DrawView drawView;
+
     //-- Important widgets --\\
     WindowManager windowManager;
     WindowManager.LayoutParams windowManagerParams;
     FrameLayout frameLayout;
+
+    //-- Draw Variables --\\
+    WindowManager windowManagerDrawView;
+    WindowManager.LayoutParams windowManagerDrawViewParams;
+    public static native void OnDrawLoad(DrawView drawView, Canvas canvas);
+    public void DrawCanvas() {
+        drawView = new DrawView(context);
+        windowManagerDrawViewParams = new WindowManager.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.TYPE_APPLICATION, WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_FULLSCREEN, PixelFormat.TRANSPARENT);
+        windowManagerDrawViewParams.gravity = Gravity.CENTER;
+        windowManager.addView(drawView, windowManagerDrawViewParams);
+    }
 
     //-- Layout menu widgets --\\
     ImageBase64 imageIcon;
@@ -64,6 +79,7 @@ public class Menu {
     //-- Initialize methods --\\
     public void Initialized() {
         onCreateSystemWindow();
+        DrawCanvas();
         onCreateLayout();
         widgets = new Widgets(context, container_features, PRIMARY_MENU_COLOR, SECONDARY_MENU_COLOR, TEXT_COLOR);
         System.loadLibrary("AndroidMenu");
@@ -94,6 +110,7 @@ public class Menu {
         container_menu.setBackgroundColor(BACKGROUND_MENU_COLOR);
         container_menu.setOrientation(LinearLayout.VERTICAL);
         container_menu.setVisibility(View.GONE);
+        container_menu.setAlpha(0.95f);
 
         container_top = new LinearLayout(context);
         container_top.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));

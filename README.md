@@ -9,7 +9,7 @@
 | Contains                  | Awsers 
 |-------------              |:-------------:
 | _Simple Menu_               | ✔
-| _Memory Tools_              | ❌
+| _Memory Tools_              | ✔
 | _Invoke in applications_    | ✔
 | _Organizad code_            | ✔
 | _Easy understanding_        | ✔

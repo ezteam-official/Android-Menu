@@ -2,3 +2,8 @@
 #include "SDK.h"
 #include "Offsets.h"
 #include "Utils.h"
+#include "Draw.h"
+#include "../Tools/Vectors/Vector2.h"
+#include "../Tools/Vectors/Vector3.h"
+#include "../Tools/Vectors/Rect.h"
+#include "../Tools/DrawTool/Draw.h"

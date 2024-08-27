@@ -22,8 +22,8 @@ Java_com_androidmenu_Widgets_onFeatures(JNIEnv *env, jobject thiz) {
     auto widgets = Widgets(env);
 
     //-- Create Widgets
-    widgets.Category("Player");
-    widgets.SeekBar("Player Speed", 0, 200, "x", 0);
+    widgets.Category("Draw Config.");
+    widgets.SeekBar("Draw Size", Vars::textSize, 50, "px", 0);
 
     LOGI("Widgets : Created!");
 
@@ -37,7 +37,7 @@ Java_com_androidmenu_Widgets_onChanges(JNIEnv *env, jclass clazz, jint id, jint 
 
     switch (id) {
         case 0:
-            Vars::playerSpeed = value;
+            Vars::textSize = value;
             break;
     }
 }

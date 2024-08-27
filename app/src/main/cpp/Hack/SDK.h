@@ -3,7 +3,8 @@
 
 namespace Vars {
 
-    int playerSpeed = 0;
+    int playerSpeed;
+    int textSize = 20;
 
 };
 
